@@ -7,7 +7,7 @@ resource "aws_sns_topic_subscription" "subscription" {
   count     = var.google_chat_webhook_enabled ? 1 : 0
   topic_arn = aws_sns_topic.topic[count.index].arn
   protocol  = "lambda"
-  endpoint  = aws_lambda_function.notification[count.index].arn
+  endpoint  = aws_lambda_function.notificator[count.index].arn
 }
 
 resource "aws_sns_topic_policy" "topic_policy" {

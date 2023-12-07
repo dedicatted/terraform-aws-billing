@@ -104,7 +104,7 @@ exports.handler = function(event, context) {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.29.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.47 |
 
 ## Modules
 
@@ -114,29 +114,29 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [aws_budgets_budget.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/budgets_budget) | resource |
-| [aws_iam_role.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
-| [aws_lambda_function.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function) | resource |
-| [aws_lambda_permission.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_permission) | resource |
-| [aws_sns_topic.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic) | resource |
-| [aws_sns_topic_policy.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic_policy) | resource |
-| [aws_sns_topic_subscription.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic_subscription) | resource |
+| [aws_budgets_budget.account_budget](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/budgets_budget) | resource |
+| [aws_iam_role.lambda_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
+| [aws_lambda_function.notificator](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function) | resource |
+| [aws_lambda_permission.permissions](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_permission) | resource |
+| [aws_sns_topic.topic](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic) | resource |
+| [aws_sns_topic_policy.topic_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic_policy) | resource |
+| [aws_sns_topic_subscription.subscription](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic_subscription) | resource |
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_aws_sns_topic_name"></a> [aws\_sns\_topic\_name](#input\_aws\_sns\_topic\_name) | What kind of budget value to notify on. Can be ACTUAL or FORECASTED. | `string` | `"default"` | no |
+| <a name="input_aws_sns_topic_name"></a> [aws\_sns\_topic\_name](#input\_aws\_sns\_topic\_name) | What kind of budget value to notify on. Can be ACTUAL or FORECASTED. | `string` | `"budget"` | no |
 | <a name="input_budget_name"></a> [budget\_name](#input\_budget\_name) | The name for your budget. | `string` | `"Account budget"` | no |
 | <a name="input_budget_type"></a> [budget\_type](#input\_budget\_type) | Whether this budget tracks monetary cost or usage. In current setup only monetary cost is tracked. | `string` | `"COST"` | no |
 | <a name="input_comparison_operator"></a> [comparison\_operator](#input\_comparison\_operator) | Comparison operator to use to evaluate the condition. Can be LESS\_THAN, EQUAL\_TO or GREATER\_THAN. | `string` | `"GREATER_THAN"` | no |
 | <a name="input_filename"></a> [filename](#input\_filename) | ZIP archive with Lambda code. Must be 'index.zip' unless you change the archive name. | `string` | `"index.zip"` | no |
-| <a name="input_function_name"></a> [function\_name](#input\_function\_name) | Lambda function name. Used to send notifications to Google chat. | `string` | `"default"` | no |
+| <a name="input_function_name"></a> [function\_name](#input\_function\_name) | Lambda function name. Used to send notifications to Google chat. | `string` | `"notificator"` | no |
 | <a name="input_google_chat_webhook"></a> [google\_chat\_webhook](#input\_google\_chat\_webhook) | Google chat webhook url where to send notifications. Must start with '/v1/spaces/...' | `string` | `""` | no |
 | <a name="input_google_chat_webhook_enabled"></a> [google\_chat\_webhook\_enabled](#input\_google\_chat\_webhook\_enabled) | Whether to turn on Google chat notifications. | `bool` | `false` | no |
 | <a name="input_handler"></a> [handler](#input\_handler) | Lambda function handler. Must be 'index.handler' unless you change it in Lambda code. | `string` | `"index.handler"` | no |
-| <a name="input_lambda_role_name"></a> [lambda\_role\_name](#input\_lambda\_role\_name) | Lambda IAM role name. | `string` | `"default"` | no |
+| <a name="input_lambda_role_name"></a> [lambda\_role\_name](#input\_lambda\_role\_name) | Lambda IAM role name. | `string` | `"notificator-lambda-role"` | no |
 | <a name="input_limit_amount"></a> [limit\_amount](#input\_limit\_amount) | The amount of cost for a budget. | `number` | `"1.30"` | no |
 | <a name="input_limit_unit"></a> [limit\_unit](#input\_limit\_unit) | The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. In current setup only dollars measurement is implemented. | `string` | `"USD"` | no |
 | <a name="input_notification_type"></a> [notification\_type](#input\_notification\_type) | What kind of budget value to notify on. Can be ACTUAL or FORECASTED. | `string` | `"ACTUAL"` | no |

@@ -72,13 +72,13 @@ variable "notification_type" {
 
 variable "aws_sns_topic_name" {
   type        = string
-  default     = "default"
+  default     = "budget"
   description = "What kind of budget value to notify on. Can be ACTUAL or FORECASTED."
 }
 
 variable "function_name" {
   type        = string
-  default     = "default"
+  default     = "notificator"
   description = "Lambda function name. Used to send notifications to Google chat."
 }
 
@@ -102,7 +102,7 @@ variable "filename" {
 
 variable "lambda_role_name" {
   type        = string
-  default     = "default"
+  default     = "notificator-lambda-role"
   description = "Lambda IAM role name."
 }
 

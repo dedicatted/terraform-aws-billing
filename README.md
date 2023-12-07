@@ -1,8 +1,56 @@
-# Terraform Module: terarform-aws-billing
+# Terraform Module: terraform-aws-billing
 # This module facilitates the creation of AWS Budgets with flexible notification options, including email, Slack, and Google Chat.
 
 ## Overview
 The `terarform-aws-billing` module enables you to easily deploy AWS Budgets, helping you monitor and control your AWS spending. The module supports multiple notification channels, allowing you to receive alerts through email, Slack, and Google Chat when your account budget thresholds are reached.
+
+## Usage
+```hcl
+//Configuration for both email and Google chat webhook
+module billing {
+  source = "github.com/dedicatted/terraform-aws-billing"
+  subscriber_email_addresses = ["test@gmail.com"]
+  google_chat_webhook = "/v1/spaces/space/messages?key=key&token=token"
+  google_chat_webhook_enabled = true
+}
+```
+```hcl
+//Configuration for Google chat webhook
+module billing {
+  source = "github.com/dedicatted/terraform-aws-billing"
+  google_chat_webhook = "/v1/spaces/space/messages?key=key&token=token"
+  google_chat_webhook_enabled = true
+}
+```
+```hcl
+//Configuration for email
+module billing {
+  source = "github.com/dedicatted/terraform-aws-billing"
+  subscriber_email_addresses = ["test@gmail.com"]
+}
+```
+
+
+## How to create Slack email
+
+ -   From your desktop, open the channel or DM you’d like to send email to.
+ -  Click the channel or member name(s) in the conversation header. 
+ -   Click the Integrations tab. 
+ -   Select Send emails to this [channel] or [conversation]. 
+ -   Click Get Email Address. 
+ -   If you’d like to set up an automatic forwarding rule from your email provider or add the email to your address book, click Copy next to the email address.
+ -   If you created an email address for a channel, Slackbot will post a message that’s only visible to you with a prompt to let members know an email address has been created. Click Share Email Address to post a message to the channel with any details you’d like. Otherwise, click Dismiss.
+
+## How to create Google chat webhook
+
+ - In a browser, open Chat. Webhooks aren't configurable from the Chat mobile app.
+ - Go to the space where you want to add a webhook.
+ - Next to the space title, click the expand_more expand more arrow, and then click Apps & integrations.
+ - Click addAdd webhooks.
+ - In the Name field, enter Quickstart Webhook.
+ - (Optional) In the Avatar URL field, enter https://developers.google.com/chat/images/chat-product-icon.png.
+ - Click Save.
+ - To copy the webhook URL, click more_vert More, and then click content_copyCopy link.
 
 ## Requirements
 

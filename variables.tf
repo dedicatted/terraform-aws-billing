@@ -114,7 +114,7 @@ variable "google_chat_webhook" {
 
 variable "google_chat_webhook_enabled" {
   type        = bool
-  default     = true
+  default     = false
   description = "Whether to turn on Google chat notifications."
 }
 

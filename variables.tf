@@ -36,7 +36,7 @@ variable "time_unit" {
 
 variable "subscriber_email_addresses" {
   type        = set(string)
-  default     = [""]
+  default     = []
   description = "E-Mail addresses to notify."
 }
 

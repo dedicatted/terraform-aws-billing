@@ -12,6 +12,11 @@ func TestBilling(t *testing.T) {
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
 		// Set the path to the Terraform code that will be tested.
 		TerraformDir: "../terraform-aws-billing",
+		// Variables to pass to our Terraform code using TF_VAR_xxx environment variables
+        Vars: map[string]interface{}{
+            "subscriber_email_addresses": []string{"example12345@gmail.com"},
+            // Add any other variables here as needed
+        },
 	})
 
 	// Run "terraform init" and "terraform apply". Fail the test if there are any errors.

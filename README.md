@@ -142,7 +142,7 @@ No modules.
 | <a name="input_notification_type"></a> [notification\_type](#input\_notification\_type) | What kind of budget value to notify on. Can be ACTUAL or FORECASTED. | `string` | `"ACTUAL"` | no |
 | <a name="input_region"></a> [region](#input\_region) | AWS region to deploy. | `string` | `"us-east-1"` | no |
 | <a name="input_runtime"></a> [runtime](#input\_runtime) | Lambda function runtime. Must be nodejs as Lambda code is written on nodejs. | `string` | `"nodejs20.x"` | no |
-| <a name="input_subscriber_email_addresses"></a> [subscriber\_email\_addresses](#input\_subscriber\_email\_addresses) | E-Mail addresses to notify. | `set(string)` | `[]` | no |
+| <a name="input_subscriber_email_addresses"></a> [subscriber\_email\_addresses](#input\_subscriber\_email\_addresses) | E-Mail addresses to notify. | `set(string)` | `[]` | yes |
 | <a name="input_threshold_type"></a> [threshold\_type](#input\_threshold\_type) | What kind of threshold is defined. Can be PERCENTAGE OR ABSOLUTE\_VALUE. | `string` | `"ABSOLUTE_VALUE"` | no |
 | <a name="input_time_period_end"></a> [time\_period\_end](#input\_time\_period\_end) | The end of the time period covered by the budget. There are no restrictions on the end date. Format: 2017-01-01\_12:00 | `string` | `""` | no |
 | <a name="input_time_period_start"></a> [time\_period\_start](#input\_time\_period\_start) | The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: 2017-01-01\_12:00 | `string` | `""` | no |

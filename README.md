@@ -18,7 +18,6 @@ module billing {
 //Configuration for Google chat webhook
 module billing {
   source = "github.com/dedicatted/terraform-aws-billing"
-  subscriber_email_addresses = []
   google_chat_webhook = "/v1/spaces/space/messages?key=key&token=token"
   google_chat_webhook_enabled = true
 }
